@@ -7,7 +7,8 @@ void copyFile(char * name);
 int main(int argc, char ** argv){
 
 	char * home = getenv("HOME");
-	copyFile(strcat(home,"/Documents/coding/projects/boilerplate-master/boilerplates/c/main"));
+	// Building path from command line arguments
+	copyFile(strcat(strcat(strcat(strcat(home,"/Documents/coding/projects/boilerplate-master/boilerplates/"),argv[1]),"/"),argv[2]));
 		
 	return 0;
 }
@@ -17,13 +18,11 @@ void copyFile(char * name){
 	FILE *newFile = fopen(strcat(getenv("PWD"),"/copy"), "w");
 	
 	if (file != NULL){
-		char line [128]; /* or other suitable maximum line size */
+		char line [128];
 		while(fgets(line, sizeof line, file) != NULL){
-			fputs(line, newFile); /* write the line */
+			fputs(line, newFile); 
 		}
 		fclose(file);
 		fclose(newFile);
-	}else{
-		perror(name); /* why didn't the file open? */
 	}
 }
