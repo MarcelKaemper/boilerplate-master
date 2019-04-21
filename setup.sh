@@ -7,4 +7,3 @@ cp ./help ~/.bpm/help
 echo Copying default boilerplates
 cp -r ./boilerplates/* ~/.bpm/boilerplates/
 echo Setup successful
-echo Cleaning up
