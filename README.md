@@ -2,7 +2,7 @@
 A program that generates boilerplate files whenever you need.  
 
 You can edit/add boilerplates here: ~/.bpm/boilerplates.  
-Feel free to open pull requests if the boilerplate is mandatory.  
+Feel free to open pull requests if your boilerplate/edit is mandatory.  
 If you want to contribute, make sure to use the following naming standard: 
 ```
 .bpm/boilerplates/<language>/<boilerplate-name>.  
