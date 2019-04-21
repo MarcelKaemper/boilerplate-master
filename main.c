@@ -6,10 +6,21 @@ void copyFile(char * name, char * filename);
 
 int main(int argc, char ** argv){
 
-	char * home = getenv("HOME");
-
-	// Building path from command line arguments
-	copyFile(strcat(strcat(strcat(strcat(home,"/Documents/coding/projects/boilerplate-master/boilerplates/"),argv[2]),"/"),argv[3]), argv[1]);
+	if(strcmp(argv[1],"help")){
+		// Building path from command line arguments
+		char * home = getenv("HOME");
+		copyFile(strcat(strcat(strcat(strcat(home,"/.bpm/boilerplates/"),argv[2]),"/"),argv[3]), argv[1]);
+	}else{
+		FILE *file = fopen("help", "r");
+		
+		if (file != NULL){
+			char line [128];
+			while(fgets(line, sizeof line, file) != NULL){
+				fputs(line, stdout); 
+			}
+			fclose(file);
+		}
+	}
 		
 	return 0;
 }
