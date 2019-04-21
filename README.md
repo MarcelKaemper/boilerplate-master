@@ -1,8 +1,12 @@
 # Boilerplate-master (bpm)
 A program that generates boilerplate files whenever you need.  
 
-You can edit/add boilerplates here: ~/.bpm/boilerplates.  It's pretty straight forward.  
-Feel free to open pull requests if the boilerplate is mandatory, but make sure to use this naming standard: .bpm/boilerplates/<language>/<boilerplate-name>.  
+You can edit/add boilerplates here: ~/.bpm/boilerplates.  
+Feel free to open pull requests if the boilerplate is mandatory.  
+If you want to contribute, make sure to use the following naming standard: 
+```
+.bpm/boilerplates/<language>/<boilerplate-name>.  
+```  
   
 Examples:  
 ```
