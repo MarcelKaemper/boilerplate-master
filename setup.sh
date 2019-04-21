@@ -1,7 +1,8 @@
 echo Running setup
-echo Creating config file ~/.bpmconfig
-touch ~/.bpmconfig
-pwd >> ~/.bpmconfig
+echo Creating directory ~/bpm/
+mkdir ~/.bpm/
+mkdir ~/.bpm/boilerplates
+echo Copying default boilerplates
+cp -r ./boilerplates/* ~/.bpm/boilerplates/
 echo Setup successful
 echo Cleaning up
-rm ./setup.sh
