@@ -6,12 +6,13 @@ void copyFile(char * name, char * filename);
 
 int main(int argc, char ** argv){
 
+	char * home = getenv("HOME");
+
 	if(strcmp(argv[1],"help")){
 		// Building path from command line arguments
-		char * home = getenv("HOME");
 		copyFile(strcat(strcat(strcat(strcat(home,"/.bpm/boilerplates/"),argv[2]),"/"),argv[3]), argv[1]);
 	}else{
-		FILE *file = fopen("help", "r");
+		FILE *file = fopen(strcat(home, "/.bpm/help"), "r");
 		
 		if (file != NULL){
 			char line [128];
