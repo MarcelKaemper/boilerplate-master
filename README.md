@@ -1,8 +1,19 @@
 # Boilerplate-master (bpm)
 A program that generates boilerplate files whenever you need.  
 
-You can edit/add boilerplates here: ~/.bpm/boilerplates.  It's pretty straight forward.  
-Feel free to submit pull requests if the boilerplate is mandatory.  
+You can edit/add boilerplates here: ~/.bpm/boilerplates.  
+Feel free to open pull requests if your boilerplate/edit is mandatory.  
+If you want to contribute, make sure to use the following naming standard: 
+```
+.bpm/boilerplates/<language>/<boilerplate-name>.  
+```  
+  
+Examples:  
+```
+  .bpm/boilerplates/cpp/class
+  .bpm/boilerplates/c/header
+  .bpm/node/server
+```
 
 # Usage
 Format:  
@@ -31,6 +42,6 @@ To make this program executable from every location you can either use an alias:
 ```
 alias bpm="path/to/executable"
 ```  
-Or copy/move it to /usr/bin/ like this:
+Or copy/move it to /usr/bin/ :
 ```
 sudo cp bpm /usr/bin/bpm
