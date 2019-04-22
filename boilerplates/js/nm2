@@ -1,0 +1,12 @@
+var funcName = () => {
+
+}
+
+var func2Name = () => {
+
+}
+
+module.exports = {
+	funcName,
+	func2Name
+};
