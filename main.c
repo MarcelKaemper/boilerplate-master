@@ -11,7 +11,7 @@ int main(int argc, char ** argv){
 	char * home = getenv("HOME");
 	char * path = strcat(home, "/.bpm/boilerplates/");
 
-	if(strcmp(argv[1],"help")){
+	if((strcmp(argv[1],"help"))){
 		// Building path from command line arguments
 		copyFile(strcat(strcat(strcat(strcat(home,"/.bpm/boilerplates/"),argv[2]),"/"),argv[3]), argv[1]);
 	}else{
@@ -35,6 +35,7 @@ void getDir(char * pathPara){
 	struct dirent *ep;	
 
 	char * dirName;
+	char * subdirName;
 
 	char * path = malloc(strlen(pathPara) + 1);
 	strcpy(path, pathPara);
@@ -48,8 +49,25 @@ void getDir(char * pathPara){
 			
 			if((strcmp(dirName, "..")) && (strcmp(dirName, "."))){
 				printf("> %s\n", dirName);
-			}
 
+				DIR *subdp;
+				struct dirent *subep;
+
+				subdp = opendir(strcat(path, dirName));
+
+				if(subdp != NULL){
+					while(subep = readdir(subdp)){
+						subdirName = malloc((strlen(ep->d_name) + 1) * sizeof(char));
+						strcpy(subdirName, subep->d_name);
+						if((strcmp(subdirName, "..")) && (strcmp(subdirName, "."))){
+							printf("%s\n", subep->d_name);	
+						}
+						free(subdirName);
+					}
+				}
+				strcpy(path, pathPara);
+				(void) closedir(subdp);
+			}
 			free(dirName);
 		}
 		(void) closedir(dp);
