@@ -30,18 +30,32 @@ int main(int argc, char ** argv){
 	return 0;
 }
 
-void getDir(char * path){
+void getDir(char * pathPara){
 	DIR *dp;
 	struct dirent *ep;	
+
+	char * dirName;
+
+	char * path = malloc(strlen(pathPara) + 1);
+	strcpy(path, pathPara);
 
 	dp = opendir(path);
 
 	if(dp != NULL){
 		while(ep = readdir(dp)){
-			puts(ep->d_name)	;
+			dirName = malloc((strlen(ep->d_name) + 1) * sizeof(char));
+			strcpy(dirName, ep->d_name);
+			
+			if((strcmp(dirName, "..")) && (strcmp(dirName, "."))){
+				printf("> %s\n", dirName);
+			}
+
+			free(dirName);
 		}
 		(void) closedir(dp);
 	}
+
+	free(path);
 }
 
 void copyFile(char * name, char * filename){
