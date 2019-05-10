@@ -1,5 +1,5 @@
 echo Running setup
-echo Creating directory ~/bpm/
+echo Creating directory ~/.bpm/
 mkdir ~/.bpm/
 mkdir ~/.bpm/boilerplates
 echo Copying help
