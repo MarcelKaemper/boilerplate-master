@@ -7,24 +7,30 @@ void copyFile(char * name, char * filename);
 void getDir(char * path);
 
 int main(int argc, char ** argv){
-
 	char * home = getenv("HOME");
-	char * path = strcat(home, "/.bpm/boilerplates/");
+
+	char * bpa = malloc(strlen(home)+1);
+	char * boilerplatesPath = malloc(strlen(home) + 1);
+	char * help = malloc(strlen(home) + 1);
+
+	strcpy(bpa, home);
+	strcpy(help, home);
+	strcpy(boilerplatesPath, home);
 
 	if((strcmp(argv[1],"help"))){
 		// Building path from command line arguments
-		copyFile(strcat(strcat(strcat(strcat(home,"/.bpm/boilerplates/"),argv[2]),"/"),argv[3]), argv[1]);
+		copyFile(strcat(strcat(strcat(strcat(bpa,"/.bpm/boilerplates/"),argv[2]),"/"),argv[3]), argv[1]);
 	}else{
-		getDir(path);
-		FILE *file = fopen(strcat(home, "/.bpm/help"), "r");
+		FILE *file = fopen(strcat(getenv("HOME"), "/.bpm/help"), "r");
 		
 		if (file != NULL){
 			char line [128];
 			while(fgets(line, sizeof line, file) != NULL){
-				fputs(line, stdout); 
+				puts(line); 
 			}
 			fclose(file);
 		}
+		getDir(strcat(boilerplatesPath, "/.bpm/boilerplates/"));
 	}
 		
 	return 0;
@@ -67,6 +73,7 @@ void getDir(char * pathPara){
 				}
 				strcpy(path, pathPara);
 				(void) closedir(subdp);
+				printf("\n");
 			}
 			free(dirName);
 		}
@@ -74,6 +81,8 @@ void getDir(char * pathPara){
 	}
 
 	free(path);
+
+	printf("bpm <filename> dir file\n");
 }
 
 void copyFile(char * name, char * filename){
