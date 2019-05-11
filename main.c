@@ -17,7 +17,7 @@ int main(int argc, char ** argv){
 	strcpy(help, home);
 	strcpy(boilerplatesPath, home);
 
-	if((strcmp(argv[1],"help"))){
+	if(argc > 3){
 		// Building path from command line arguments
 		copyFile(strcat(strcat(strcat(strcat(bpa,"/.bpm/boilerplates/"),argv[2]),"/"),argv[3]), argv[1]);
 	}else{
