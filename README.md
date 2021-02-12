@@ -1,5 +1,5 @@
 # Boilerplate-master (bpm)
-A program that generates boilerplate files whenever you need.  
+A program that generates boilerplate files whenever you need them.  
 
 You can edit/add boilerplates here: ~/.bpm/boilerplates.  
 Feel free to open pull requests if your boilerplate/edit is mandatory.  
